@@ -1,0 +1,4 @@
+jQuery(function($){$('.book_search_load_more_inner').click(function(){var button=$(this).closest('.book_search_load_more'),button_inner=$(this)
+data={'action':'booksearchloadmore','query':book_search_loadmore_params.posts,'page':book_search_loadmore_params.current_page};$.ajax({url:book_search_loadmore_params.ajaxurl,data:data,type:'POST',beforeSend:function(xhr){button_inner.text('Load More');},success:function(data){if(data){button_inner.text('Load More');button.before(data)
+book_search_loadmore_params.current_page++;if(book_search_loadmore_params.current_page==book_search_loadmore_params.max_page)
+button.remove();}else{button.remove();}}});});});
